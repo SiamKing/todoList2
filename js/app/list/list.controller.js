@@ -8,7 +8,10 @@ function ListController () {
   vm.currentTask = {};
   vm.add = add;
   vm.startAdd = startAdd;
+  vm.startEdit = startEdit;
   vm.isInAddMode = isInAddMode;
+  vm.isInEditMode = isInEditMode;
+  vm.save = save;
 
   function add () {
     vm.currentTask.complete = false;
@@ -22,8 +25,20 @@ function ListController () {
     vm.currentTask = {};
   }
 
+  function startEdit() {
+
+  }
+
   function isInAddMode() {
     return addFlag;
+  }
+
+  function isInEditMode() {
+
+  }
+
+  function save() {
+    
   }
 
   function reset() {
