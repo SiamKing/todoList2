@@ -1,8 +1,15 @@
 function ListController () {
   var vm = this;
+  vm.currentTask = {};
+  vm.add = add;
+
+  function add () {
+    vm.currentTask.complete = false;
+    vm.list.tasks.push(vm.currentTask)
+  }
 
   vm.list = {
-    name: '',
+    name: 'To Do List',
     tasks: [
       {
         id: 1,
