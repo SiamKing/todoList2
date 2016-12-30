@@ -13,8 +13,10 @@ function ListController () {
   vm.isInReadMode = isInReadMode;
   vm.isInAddMode = isInAddMode;
   vm.isInEditMode = isInEditMode;
+  vm.isInRemoveMode = isInRemoveMode;
   vm.save = save;
   vm.cancel = reset;
+  vm.remove = remove;
 
   function add () {
     vm.currentTask.complete = false;
@@ -41,8 +43,10 @@ function ListController () {
     }
   }
 
-  function startRemove() {
-
+  function startRemove(id) {
+    reset();
+    selectedId = id;
+    removeFlag = true;
   }
 
   function isInReadMode(id) {
@@ -55,6 +59,10 @@ function ListController () {
 
   function isInEditMode(id) {
     return selectedId === id && editFlag;
+  }
+
+  function isInRemoveMode(id) {
+    return selectedId === id && removeFlag;
   }
 
   function save() {
@@ -72,6 +80,15 @@ function ListController () {
     addFlag = false;
     editFlag = false;
     removeFlag = false;
+  }
+
+  function remove(id) {
+    for (var i = 0; i < vm.list.tasks.length; i++) {
+      if (vm.list.tasks[i].id == id) {
+        vm.list.tasks.splice(i, 1);
+        reset();
+      }
+    }
   }
 
   vm.list = {
