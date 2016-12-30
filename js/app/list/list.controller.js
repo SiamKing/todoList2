@@ -9,6 +9,7 @@ function ListController () {
   vm.add = add;
   vm.startAdd = startAdd;
   vm.startEdit = startEdit;
+  vm.isInReadMode = isInReadMode;
   vm.isInAddMode = isInAddMode;
   vm.isInEditMode = isInEditMode;
   vm.save = save;
@@ -29,6 +30,10 @@ function ListController () {
 
   }
 
+  function isInReadMode() {
+    return true;
+  }
+
   function isInAddMode() {
     return addFlag;
   }
@@ -38,7 +43,7 @@ function ListController () {
   }
 
   function save() {
-    
+
   }
 
   function reset() {
