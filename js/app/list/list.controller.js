@@ -14,7 +14,7 @@ function ListController () {
   vm.isInAddMode = isInAddMode;
   vm.isInEditMode = isInEditMode;
   vm.save = save;
-  vm.cancel = cancel;
+  vm.cancel = reset;
 
   function add () {
     vm.currentTask.complete = false;
@@ -65,10 +65,6 @@ function ListController () {
         reset();
       }
     }
-  }
-
-  function cancel() {
-
   }
 
   function reset() {
