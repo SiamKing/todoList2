@@ -15,13 +15,14 @@
       <div ng-show="vm.isInAddMode()">
         <input placeholder="task name" ng-model="vm.currentTask.name">
         <button ng-click="vm.add()">Add</button>
+        <button ng-click="vm.cancel()">Cancel</button>
       </div>
 
       <!-- tasks -->
 
       <div ng-repeat="task in vm.list.tasks | orderBy: '$index'">
         <div ng-show="vm.isInReadMode(task.id)">
-          <p>{{ $index + 1}}: {{ task.name }} - completed: {{ task.complete }}</p>
+          <p>{{ $index + 1 }}: {{ task.name }} - completed: {{ task.complete }}</p>
 
           <!-- task options -->
 

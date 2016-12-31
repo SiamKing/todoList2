@@ -20,7 +20,9 @@ function ListController () {
 
   function add () {
     vm.currentTask.complete = false;
+    vm.currentTask.id = vm.list.tasks.length + 1;
     vm.list.tasks.push(vm.currentTask);
+    vm.currentTask = {};
     reset();
   }
 
@@ -80,6 +82,7 @@ function ListController () {
     addFlag = false;
     editFlag = false;
     removeFlag = false;
+    vm.currentTask = {};
   }
 
   function remove(id) {
